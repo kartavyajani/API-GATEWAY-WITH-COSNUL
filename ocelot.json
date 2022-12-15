@@ -1,0 +1,22 @@
+{
+    "Routes": [
+      {
+        "DownstreamPathTemplate": "/{everything}",
+        "DownstreamScheme": "http",
+        "ServiceName": "NgBackend-API",
+        "UpstreamPathTemplate": "/gateway/{everything}",
+        "LoadBalancerOptions": {
+            "Type": "RoundRobin"
+          },
+        "UpstreamHttpMethod": [ "Get" ]
+      }
+ 
+    ],
+    "GlobalConfiguration": {
+      "ServiceDiscoveryProvider": {
+        "Host": "localhost",
+        "Port": 8500,
+        "Type": "Consul"
+      }
+    }
+  }
